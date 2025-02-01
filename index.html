@@ -3,102 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSC 116 - Cybersecurity: An Introduction to Security and Privacy</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <title>CSC 116 - Cybersecurity: Introduction to Security and Privacy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #2A9D8F;
+            --secondary: #264653;
+            --accent: #E76F51;
+            --light: #F8F9FA;
+            --gradient: linear-gradient(135deg, #2A9D8F 0%, #264653 100%);
+        }
+
         body {
-            font-family: 'Roboto', 'Open Sans', sans-serif;
-            line-height: 1.8;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
             margin: 0;
             padding: 20px;
-            background: linear-gradient(to right, #eef2f3, #8e9eab);
-            color: #333;
+            background: var(--light);
+            color: var(--secondary);
         }
+
         h1, h2, h3 {
-            color: #2c3e50;
+            font-family: 'Space Grotesk', sans-serif;
+            margin: 1.5rem 0;
+        }
+
+        h1 {
+            color: var(--secondary);
+            font-size: 2.5rem;
             text-align: center;
-            font-family: 'Open Sans', sans-serif;
+            margin: 2rem 0;
+            position: relative;
+            padding-bottom: 1rem;
         }
-        h2 {
-            border-bottom: 3px solid #4CAF50;
-            display: inline-block;
-            margin-bottom: 20px;
-            padding-bottom: 5px;
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
         }
+
         .section {
-            margin: 20px auto;
-            max-width: 800px;
+            margin: 2rem auto;
+            max-width: 1000px;
             background: white;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease;
         }
-        ul {
-            list-style: none;
-            padding: 0;
+
+        .section:hover {
+            transform: translateY(-2px);
         }
-        ul li {
-            margin: 8px 0;
-            padding: 8px;
-            background-color: #f9f9f9;
+
+        .table {
+            width: 100%;
+            margin: 2rem 0;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .table th {
+            background: var(--gradient);
+            color: white;
+            padding: 1.2rem;
+            font-weight: 600;
+            text-align: left;
+        }
+
+        .table td {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .table tr:hover td {
+            background: rgba(42, 157, 143, 0.05);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            background: rgba(231, 111, 81, 0.1);
+            color: var(--accent);
+            margin: 0.2rem;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--accent);
+        }
+
+        .notification {
+            padding: 1rem;
+            border-left: 4px solid var(--accent);
+            background: rgba(231, 111, 81, 0.05);
+            margin: 1rem 0;
             border-radius: 4px;
         }
-        .table {
-            width: 80%;
-            margin: 20px auto;
-            border-collapse: collapse;
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.8rem 1.5rem;
+            background: var(--primary);
+            color: white !important;
+            border-radius: 8px;
+            transition: all 0.2s ease;
         }
-        .table th, .table td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: center;
+
+        .button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(42, 157, 143, 0.3);
         }
-        .table th {
-            background-color: #4CAF50;
-            color: white;
-            font-weight: bold;
-        }
-        .table tbody tr:nth-child(odd) {
-            background-color: #f9f9f9;
-        }
-        .table tbody tr:hover {
-            background-color: #f1f1f1;
-        }
+
         footer {
             text-align: center;
-            margin-top: 30px;
-            font-size: 0.9em;
-            color: #555;
+            padding: 2rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                padding: 1.5rem;
+                margin: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .table {
+                display: block;
+                overflow-x: auto;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>CSC 116 - Cybersecurity: An Introduction to Security and Privacy</h1>
+    <h1>CSC 116 - Cybersecurity:<br>Introduction to Security and Privacy</h1>
+
     <div class="section">
-        <h2><strong>Spring Semester 2025</strong></h2>
-        <p><strong>Classroom:</strong> Dooly Memorial 318</p>
-        <p><strong>Lecture Hours:</strong> Monday/Wednesday, 3:35 PM - 4:50 PM</p>
-        <p><strong>Instructor:</strong> Yusen Wu | <strong>Email:</strong> yxw1259@miami.edu | <strong>Office:</strong> Ungar Building, 103E, Coral Gables</p>
-        <p><strong>Teaching Assistant:</strong> Caden Radojevich Headrick | <strong>Email:</strong> crh873@miami.edu</p>
-        <p><strong>Office Hours:</strong> Tuesdays 2-4pm | By appointment only | Send your questions to Caden before you come</p>
-        <p><strong>Location:</strong> Ungar Building 310T. <span style="color: RED;">Office hours generally start on 20th January - the second week of semester.</span> </p>
+        <h2>📅 Course Overview</h2>
+        <div class="info-grid">
+            <p><strong>🏫 Classroom:</strong> Dooly Memorial 318</p>
+            <p><strong>🕒 Lecture Hours:</strong> Mon/Wed 3:35 PM - 4:50 PM</p>
+            <p><strong>👨🏫 Instructor:</strong> Yusen Wu<br>
+            <strong>📧 Email:</strong> <a href="mailto:yxw1259@miami.edu">yxw1259@miami.edu</a></p>
+            <p><strong>👨💻 TA:</strong> Caden Radojevich Headrick<br>
+            <strong>📧 Email:</strong> <a href="mailto:crh873@miami.edu">crh873@miami.edu</a></p>
+        </div>
     </div>
 
     <div class="section">
-        <h2>Online Forum</h2>
-        <p> Relevant course materials will be posted via ED (<a href="https://edstem.org/us/join/qDqqRw"><strong>https://edstem.org/us/join/qDqqRw</strong></a>). Other relevant reading materials will be also
-            uploaded prior to the class session. I encourage you to read the materials before joining the class. <br>
-            Discussions in ED are highly encouraged. Please post your questions and concerns there so that your classmates can also assist you. ED is
-            also a great platform to find team members or share new findings with your classmates. You can also share anonymous comments in ED
-            with me if you have any other concerns. We will do our best to answer your questions and foster active participation, helping everyone
-            engage in our class</p>
-    </div>
-
-    <div class="section">
-        <h2>Notifications</h2>
-        <p><span style="color: RED;">1/17/2025: Please find your group mates ASAP, our first assignment will be released soon. Link: <a href="https://miamiedu-my.sharepoint.com/:x:/g/personal/yxw1259_miami_edu/Eew4QwXumM1OjkMC7QiA51MBrDhFiqu9ZiDtl8-DqP9FEg?e=vAndkw"> Click me to register your teams!</a></span></p> 
-        
-        <p> 1/13/2025: You don't need to purchase the textbook, as all topics will be thoroughly covered in the slides.</p>
+        <h2>📢 Important Notices</h2>
+        <div class="notification">
+            <span class="badge">New!</span>
+            <strong>Team Registration:</strong> Form your groups ASAP! First assignment coming soon.
+            <a href="https://miamiedu-my.sharepoint.com/:x:/g/personal/yxw1259_miami_edu/Eew4QwXumM1OjkMC7QiA51MBrDhFiqu9ZiDtl8-DqP9FEg?e=vAndkw" class="button">Register Teams</a>
+        </div>
+        <div class="notification">
+            <span class="badge">Reminder</span>
+            No textbook required - all materials provided in slides
+        </div>
     </div>
 
     <div class="section">
